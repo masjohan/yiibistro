@@ -112,12 +112,12 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::$app->session->setFlash('success', 'Your friend has signed up! Choose your reward below.');
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending email.');
             }
+			return $this->redirect(array("/site/newuser"));
 
-            return $this->refresh();
         } else {
             return $this->render('contact', [
                 'model' => $model,
@@ -152,36 +152,6 @@ class SiteController extends Controller
     {
         return $this->render('newuser');
     }
-    
-/*	public function actionProfile()
-	{
-	    $model = new ProfileForm();
-	
-	    if ($model->load(Yii::$app->request->post())) {
-	        if ($model->validate()) {
-	            // form inputs are valid, do something here
-	            return;
-	        }
-	    }
-	
-	    return $this->render('profile', [
-	        'model' => $model,
-	    ]);
-	}
-	*/
-	/*    public function actionProfile()
-    {
- 
-
-        $model = new ProfileForm();
-        if ($model->load(Yii::$app->request->post()) && $model->update()) {
-            return $this->goHome();
-        } else {
-            return $this->render('profile', [
-                'model' => $model,
-            ]);
-        }
-    }*/
 	
 	    public function actionProfile()
     {

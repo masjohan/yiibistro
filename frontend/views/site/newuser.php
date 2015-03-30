@@ -41,7 +41,10 @@ var end = new Date('04/05/2015 8:00 AM');
     timer = setInterval(showRemaining, 1000);
 }
 
+// giveReward lists the 3 gift buttons & removes them once one is selected
+// TODO: Add permanence to the buttons i.e. refreshing the page allows users to select another reward
 function giveReward() {
+	// Generate a coupon between $1 and $10
 	var randomCoupon = Math.floor((Math.random() * 10) + 1);
        document.getElementById('gift').innerHTML = "You've received a coupon for $" + randomCoupon + " off your first purchase!";
 
@@ -68,7 +71,8 @@ countdownTimer()
     </div>
 
     <div class="body-content">
-
+	<?php if( Yii::$app->user->getId() < 100 )
+	{ ?>
 		<h2 align='center' id="gift">You have a reward waiting! Choose from one of the mystery gifts below:</h2>
         <div class="row">
             <div class="col-lg-4">
@@ -83,7 +87,7 @@ countdownTimer()
         </div>
         				
         <h2 id="gift" align='center'></h2>
-
+	<?php } ?>
 
     </div>
 </div>
