@@ -1,4 +1,4 @@
-Yii 2 Advanced Application Template
+Yii Bistro
 ===================================
 
 The Yii Bistro is my take on a restaurant loyalty program built on the PHP framework Yii with a SQLite backend database. The restaurant's fake grand opening is coming soon, and they want me to generate some buzz in the local community. Each of the first 100 users to register receive a mystery prize in the form of discount coupons, and an additional referral system is in place to encourage users to spread the news of the restaurant's opening.
